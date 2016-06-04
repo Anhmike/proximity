@@ -1,0 +1,12 @@
+<ul class="list-group">
+  <li *ngFor="let place of places" class="list-group-item">
+    <!-- Icon based on place type -->
+    <span [ngSwitch]="place.type">
+      <i *ngSwitchWhen="'bar'" class="fa fa-glass" aria-hidden="true"></i>
+      <i *ngSwitchWhen="'restaurant'" class="fa fa-cutlery" aria-hidden="true"></i>
+      <i *ngSwitchWhen="'cafe'" class="fa fa-coffee" aria-hidden="true"></i>
+    </span>
+
+    {{place.name}}
+  </li>
+</ul>
