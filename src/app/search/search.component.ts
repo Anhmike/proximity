@@ -69,13 +69,12 @@ export class SearchComponent implements OnInit {
     this.placesService.findPlaces(location).subscribe(
       (result) => {
         this.searchingPlaces = false;
-        console.log(result);
         this.searchResults.emit(result);
       },
       (error) => {
         this.searchingPlaces = false;
-        console.log("ERROR: ");
-        console.log(JSON.stringify(error));
+        console.error("ERROR: ");
+        console.error(JSON.stringify(error));
       }
     );   
   }

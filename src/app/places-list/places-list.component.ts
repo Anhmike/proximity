@@ -24,5 +24,9 @@ export class PlacesListComponent implements OnInit {
   getLabel(index:number):string {
     return String.fromCharCode(65+index);
   }
+  
+  selectPlace(place:Place) {
+    this.selected = place;
+  }
 
 }

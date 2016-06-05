@@ -19,11 +19,7 @@ export class PlaceDetailsComponent implements OnChanges {
   ngOnChanges() {
     console.log("Changes: " + this.place);
     if (this.place != null) {
-      this.placesService.getDetails(this.place).subscribe(details => {
-        console.log("DETAILS: ");
-        console.log(details);
-        this.details = details;
-      });
+      this.placesService.getDetails(this.place).subscribe(details => this.details = details);
     } else {
       this.details = null;
     }
