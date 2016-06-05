@@ -1,0 +1,35 @@
+<p *ngIf="!details">
+  Loading...
+</p>
+<div *ngIf="details" class="table-responsive">
+  <table class="table table-condensed">
+    <tbody>
+      <tr *ngIf="details.address">
+        <td><i class="fa fa-home" aria-hidden="true"></i></td>
+        <td>{{details.address}}</td>
+      </tr>
+
+      <tr *ngIf="details.phone">
+        <td><i class="fa fa-phone" aria-hidden="true"></i></td>
+        <td>{{details.phone}}</td>
+      </tr>
+      
+      <tr *ngIf="details.website">
+        <td><i class="fa fa-globe" aria-hidden="true"></i></td>
+        <td><a target="_blank" [href]="details.website" style="color:white">{{details.website}}</a></td>
+      </tr>
+      
+      <tr *ngIf="details.rating">
+        <td><i class="fa fa-star" aria-hidden="true"></i></td>
+        <td>{{details.rating}}</td>
+      </tr>
+
+      <tr *ngIf="details.openingHours.length > 0">
+        <td><i class="fa fa-clock-o" aria-hidden="true"></i></td>
+        <td><p *ngFor="let day of details.openingHours">{{day}}</p></td>
+      </tr>
+
+    </tbody>
+
+  </table>
+</div>
