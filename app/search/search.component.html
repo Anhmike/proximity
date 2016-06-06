@@ -1,0 +1,23 @@
+<h4>Find a location</h4>
+<form class="form">
+  <div class="form-group">
+    <label class="sr-only" for="search">Search a city</label>
+    <div class="input-group">
+      <input [ngFormControl]="search" type="text" class="form-control" id="search" placeholder="Search a city" (keypress)="searchKeyPressed($event)">
+      <span class="input-group-btn">
+        <a (click)="searchCity()" class="btn btn-primary">
+          <span class="sr-only" for="search">Search a city</span>
+          <i *ngIf="!searchingPlaces" class="fa fa-search" aria-hidden="true"></i>
+          <i *ngIf="searchingPlaces" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+        </a>
+      </span>
+      <span class="input-group-btn"> 
+        <a (click)="searchCurrentLocation()" class="btn btn-primary">
+          <span class="sr-only" for="search">Search current location</span>
+          <i class="fa fa-location-arrow" [class.fa-spin]="searchingLocation" aria-hidden="true"></i>
+        </a>
+      </span>
+    </div>
+  </div>
+</form>
+<br>

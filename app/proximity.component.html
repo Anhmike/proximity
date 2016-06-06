@@ -1,0 +1,22 @@
+<div class="container-fluid fill">
+  <div class=row>
+    <div class="col-md-3">
+      <a *ngIf="!user" class="btn btn-primary btn-block" (click)="userService.login()">Login</a>
+      <span *ngIf="user">
+        <a class="btn btn-primary btn-xs" (click)="userService.logout()">Logout</a>
+        Logged in as {{user}}. 
+      </span>
+      <app-search (searchResults)="handleSearchResult($event)"></app-search>
+      <app-places-list [places]="places" [selected]="selectedPlace"></app-places-list>
+    </div>
+    <div class="col-md-9" class="fill">
+      <div>
+        <!--<sebm-google-map>-->
+        <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+               <sebm-google-map-marker #m *ngFor="let place of places; let i = index" [latitude]="place.location.lat" [longitude]="place.location.lng" [title]="place.name" [label]="getLabel(i)" (markerClick)="clickMarker(place, m)">  
+               </sebm-google-map-marker>
+        </sebm-google-map>
+    </div>
+    </div>
+  </div>
+</div>

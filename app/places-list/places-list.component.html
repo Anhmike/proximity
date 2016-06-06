@@ -1,0 +1,32 @@
+<ul class="list-group">
+  <li *ngFor="let place of places; let i=index" class="list-group-item" [class.active]="place == selected">
+
+    <!-- Icon based on place type -->
+    <div class="row">
+      <div class="col-md-2">
+        <span class="label label-pill label-primary">{{getLabel(i)}}</span>&nbsp;
+        <span [ngSwitch]="place.type">
+          <i *ngSwitchWhen="'bar'" class="fa fa-glass" aria-hidden="true"></i>
+          <i *ngSwitchWhen="'restaurant'" class="fa fa-cutlery" aria-hidden="true"></i>
+          <i *ngSwitchWhen="'cafe'" class="fa fa-coffee" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="col-md-10">
+       <a (click)="selectPlace(place)" [style.color]="place != selected ? 'black' : 'white'">{{place.name}}</a>
+       <div *ngIf="user">
+          <a *ngIf="!isAttending(i)" (click)="attend(place)" class="btn btn-xs btn-success">Attend</a>
+          <a *ngIf="isAttending(i)" (click)="leave(place)" class="btn btn-xs btn-danger">Leave</a>
+       </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div *ngIf="place == selected" class="col-md-10">
+        <br>
+        <app-place-details [place]="place"></app-place-details>
+      </div>
+    </div>
+  </li>
+</ul>
