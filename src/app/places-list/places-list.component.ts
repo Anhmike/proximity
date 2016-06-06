@@ -24,11 +24,13 @@ export class PlacesListComponent implements OnInit, OnChanges {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.user.subscribe(user => this.user = user);
+    this.userService.user.subscribe(user => {
+      this.user = user;
+      this.ngOnChanges();
+    });
   }
 
   ngOnChanges() {
-    console.log("change!");
     if (this.places!=null) {
       this.attending = new Array(this.places.length);
       for (let i=0; i<this.places.length; i++) {
@@ -37,7 +39,7 @@ export class PlacesListComponent implements OnInit, OnChanges {
       }
     }
   }
-  
+
   /**
    * Creates a single character label for a marker.
    */
