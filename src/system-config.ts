@@ -3,12 +3,20 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  'angular2-google-maps': 'vendor/angular2-google-maps'  
+  'angular2-google-maps': 'vendor/angular2-google-maps',
+  'firebase': 'vendor/firebase/lib/firebase-web.js',
+  'angularfire2': 'vendor/angularfire2'
 };
 
 /** User packages configuration. */
 const packages: any = {
-    'angular2-google-maps':       { defaultExtension: 'js' }
+    'angular2-google-maps': { 
+      defaultExtension: 'js' 
+    },
+    'angularfire2': {
+      defaultExtension: 'js',
+      main: 'angularfire2.js'
+    }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -12,7 +12,9 @@ module.exports = function(defaults) {
       'reflect-metadata/*.js',
       'rxjs/**/*.js',
       '@angular/**/*.js',
-      'angular2-google-maps/**/*.+(js|ts|js.map)'
+      'angular2-google-maps/**/*.+(js|ts|js.map)',
+      'angularfire2/**/*.+(js|ts|js.map)',
+      'firebase/lib/*.+(js|ts|js.map)'
     ]
   });
 };

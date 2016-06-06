@@ -1,6 +1,11 @@
 <div class="container-fluid fill">
   <div class=row>
     <div class="col-md-3">
+      <a *ngIf="!user" class="btn btn-primary btn-block" (click)="userService.login()">Login</a>
+      <span *ngIf="user">
+        <a class="btn btn-primary btn-xs" (click)="userService.logout()">Logout</a>
+        Logged in as {{user}}. 
+      </span>
       <app-search (searchResults)="handleSearchResult($event)"></app-search>
       <app-places-list [places]="places" [selected]="selectedPlace"></app-places-list>
     </div>

@@ -13,6 +13,10 @@
       </div>
       <div class="col-md-10">
        <a (click)="selectPlace(place)" [style.color]="place != selected ? 'black' : 'white'">{{place.name}}</a>
+       <div *ngIf="user">
+          <a *ngIf="!isAttending(i)" (click)="attend(place)" class="btn btn-xs btn-success">Attend</a>
+          <a *ngIf="isAttending(i)" (click)="leave(place)" class="btn btn-xs btn-danger">Leave</a>
+       </div>
       </div>
     </div>
     
