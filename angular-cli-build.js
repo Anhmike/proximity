@@ -10,8 +10,8 @@ module.exports = function(defaults) {
       'zone.js/dist/*.js',
       'es6-shim/es6-shim.js',
       'reflect-metadata/*.js',
-      'rxjs/**/*.js',
-      '@angular/**/*.js',
+      'rxjs/**/*.+(js|ts|js.map)',
+      '@angular/**/*.+(js|ts|js.map)',
       'angular2-google-maps/**/*.+(js|ts|js.map)',
       'angularfire2/**/*.+(js|ts|js.map)',
       'firebase/lib/*.+(js|ts|js.map)'
